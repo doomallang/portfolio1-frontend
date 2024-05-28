@@ -1,12 +1,16 @@
-import Title from '@/components/Title'
-import Nav from '@/components/Nav'
+import Title from '@/components/container/Title'
+import MenuBar from '@/components/container/MenuBar'
+
+import style from './_module/css/top.module.css'
+import LoginBar from '@/components/container/LoginBar'
 
 export default function Top() {
   return (
     <>
-      <div>
+      <div className={style.topContainer}>
         <Title />
-        <Nav />
+        <MenuBar />
+        <LoginBar />
       </div>
     </>
   )

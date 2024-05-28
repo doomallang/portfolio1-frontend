@@ -1,0 +1,7 @@
+.menuContainer {
+  min-width: 0;
+  flex: auto;
+  justify-content: flex-end;
+  margin-right: 10px;
+  font-weight: bolder;
+}

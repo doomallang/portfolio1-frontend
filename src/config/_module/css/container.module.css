@@ -1,0 +1,20 @@
+.header {
+  padding: 0 0 10px 0;
+  background-color: white;
+}
+
+.contentsContainer {
+  min-height: calc(100% - 130px);
+}
+
+.footerContainer {
+  height: 130px;
+  position: relative;
+  transform: translateY(0%);
+  background-color: #4096ff;
+}
+
+.content {
+  background-color: white;
+  border-top: 1px solid rgba(200, 200, 200, 0.5);
+}

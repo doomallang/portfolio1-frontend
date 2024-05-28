@@ -1,0 +1,10 @@
+.loginContainer {
+  margin-right: 20px;
+  font-weight: bolder;
+}
+
+.loginButton {
+  display: flex;
+  align-items: center;
+  padding-right: 45px;
+}

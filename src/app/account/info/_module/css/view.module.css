@@ -1,0 +1,54 @@
+.viewContainer {
+  text-align: left;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: bolder;
+  margin-top: 20px;
+}
+
+.content {
+  margin-top: 10px;
+}
+
+.avatarContent {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.modalInput {
+  margin-top: 10px;
+}
+
+.avatarButton {
+  margin-left: 10px;
+  border: none !important;
+}
+
+.avatarBorder {
+  display: inline-block;
+  padding: 5px 5px;
+  border: 3px solid black;
+  margin-right: 10px;
+}
+
+.avatarBorder:hover {
+  border: 3px solid green;
+}
+
+.avatarImage {
+  width: 50px;
+  height: 50px;
+}
+
+.buttonBox {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.button {
+  width: 50%;
+}
