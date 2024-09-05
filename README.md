@@ -20,3 +20,4 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+<img width="1351" alt="image" src="https://github.com/user-attachments/assets/1b2c99ce-fb87-4a67-a0d6-3610399876eb">
