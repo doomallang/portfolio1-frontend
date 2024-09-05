@@ -14,11 +14,11 @@ export default function FreeNoticeWriteForm() {
   const [text, setText] = useState('')
   const [title, setTitle] = useState('')
   const [form] = Form.useForm()
-  const { token } = useAuthStore()
+
   const { onLink } = useLink()
 
   async function onClickRegist() {
-    const response = await addFreeNotice('0', title, text, token)
+    const response = await addFreeNotice('0', title, text)
 
     if (response.status === 200) {
       onLink(RouteUrl.FREE_NOTICE)

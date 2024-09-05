@@ -106,7 +106,7 @@ export default function JoinForm() {
           </Form.Item>
           <Form.Item>
             <Button type="primary" className={style.button} onClick={onClickJoin}>
-              {ViewTitle.LOGIN}
+              {ViewTitle.JOIN}
             </Button>
           </Form.Item>
         </Form>

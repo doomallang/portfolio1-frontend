@@ -8,6 +8,9 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import ErrorModal from '@/components/modal/ErrorModal'
+import useErrorStore from '@/stores/store.error'
+import Error from 'next/error'
 
 interface Props {
   children: ReactNode
@@ -24,13 +27,13 @@ export default function Root({ children }: Props) {
       },
     },
   })
-
   const dehydratedState = dehydrate(queryClient)
 
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <HydrationBoundary state={dehydratedState}>
+          <ErrorModal />
           <Container>{children}</Container>
         </HydrationBoundary>
       </QueryClientProvider>

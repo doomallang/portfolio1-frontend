@@ -29,15 +29,49 @@ export async function addFreeNotice(freeNoticeIdx: string, title: string, conten
     title: title,
     content: content,
   }
-  const response = await HttpClient.post(ApiUrl.FREE_NOTICE_WRITE, data)
-
-  return response
+  return await HttpClient.post(ApiUrl.FREE_NOTICE_WRITE, data)
 }
 
 export async function getFreeNotice(freeNoticeIdx: string) {
-  const response = await HttpClient.get(ApiUrl.FREE_NOTICE_VIEW, {
+  return await HttpClient.get(ApiUrl.FREE_NOTICE_VIEW, {
     freeNoticeIdx: freeNoticeIdx,
   })
+}
 
-  return response
+export async function getFreeNoticeComment(freeNoticeIdx: string) {
+  return await HttpClient.get(ApiUrl.FREE_NOTICE_COMMENT, {
+    freeNoticeIdx: freeNoticeIdx,
+  })
+}
+
+export async function addFreeNoticeComment(
+  freeNoticeIdx: string,
+  content: string,
+  accountId: string,
+) {
+  const data = {
+    freeNoticeIdx: freeNoticeIdx,
+    content: content,
+    accountId: accountId,
+  }
+
+  return await HttpClient.post(ApiUrl.FREE_NOTICE_COMMENT, data)
+}
+
+export async function modifyCommentRecommend(commentIdx: string, accountId: string) {
+  const data = {
+    commentIdx: commentIdx,
+    accountId: accountId,
+  }
+
+  return await HttpClient.put(ApiUrl.COMMENT_RECOMMEND, data)
+}
+
+export async function modifyNoticeRecommend(freeNoticeIdx: string, accountId: string) {
+  const data = {
+    freeNoticeIdx: freeNoticeIdx,
+    accountId: accountId,
+  }
+
+  return await HttpClient.put(ApiUrl.FREE_NOTICE_RECOMMEND, data)
 }

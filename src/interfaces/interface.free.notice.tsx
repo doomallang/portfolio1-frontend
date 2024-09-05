@@ -10,4 +10,14 @@ interface FreeNotice {
   resAccount: Account
 }
 
-export type { FreeNotice }
+interface FreeNoticeComment {
+  commentIdx: number
+  freeNoticeIdx: number
+  content: string
+  resAccount: Account
+  recommendCount: number
+  createDatetime: string
+  updateDatetime: string
+}
+
+export type { FreeNotice, FreeNoticeComment }

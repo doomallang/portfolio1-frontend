@@ -3,11 +3,8 @@ import { Button, Select } from 'antd'
 import { HighlightOutlined } from '@ant-design/icons'
 import { FreeNoticeSelect } from '@/constant/SelectType'
 import useLink from '@/hooks/useLink'
-import useAuthStore from '@/stores/store.auth'
 import { RouteUrl } from '@/enums/url'
-import { validToken } from '@/api/api.common'
 import { ViewTitle } from '@/enums/text'
-import { sort } from 'semver'
 
 export default function FreeNoticeNav({ setSortType }: { setSortType: Function }) {
   const token = localStorage.getItem('token')

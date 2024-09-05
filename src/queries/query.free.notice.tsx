@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getFreeNotice, getFreeNoticeList } from '@/api/api.free.notice'
+import { getFreeNotice, getFreeNoticeComment, getFreeNoticeList } from '@/api/api.free.notice'
 
 export function useFreeNoticeListQuery(page: number, sortType: string, searchText: string) {
   return useQuery({
@@ -13,5 +13,11 @@ export function useFreeNoticeViewQuery(freeNoticeIdx: string) {
     queryKey: ['freeNotice', 'view'],
     queryFn: () => getFreeNotice(freeNoticeIdx),
   })
-  getFreeNotice
+}
+
+export function useFreeNoticeCommentQuery(freeNoticeIdx: string) {
+  return useQuery({
+    queryKey: ['freeNotice', 'comment'],
+    queryFn: () => getFreeNoticeComment(freeNoticeIdx),
+  })
 }

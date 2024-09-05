@@ -35,7 +35,7 @@ export default function LoginBar() {
           placement="bottomRight"
         >
           <Button className={style.loginButton}>
-            <img src={avatar} />
+            <img src={avatar} width={'30px'} />
             <span>{accountId}</span>
           </Button>
         </Dropdown>

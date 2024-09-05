@@ -34,4 +34,15 @@ const removeTag = (text: string) => {
   return text.replace(/(<([^>]+)>)/gi, '')
 }
 
-export { validateEmail, validatePass, isEmptyObject, removeTag }
+const calDate = (datetime: string) => {
+  // 입력된 datetime을 JavaScript의 Date 객체로 변환
+  const inputDate = new Date(datetime)
+  // 현재 날짜
+  const currentDate = new Date()
+  // 날짜 차이 (밀리초 단위)
+  const timeDifference = currentDate.getTime() - inputDate.getTime()
+  // 밀리초를 일(day) 단위로 변환 (1일 = 1000밀리초 * 60초 * 60분 * 24시간)
+  return Math.floor(timeDifference / (1000 * 60 * 60 * 24))
+}
+
+export { validateEmail, validatePass, isEmptyObject, removeTag, calDate }

@@ -21,9 +21,6 @@ export default function Container({ children }: Props) {
         </div>
         <div className={style.content}>{children}</div>
       </div>
-      <div className={style.footerContainer}>
-        <Bottom />
-      </div>
     </>
   )
 }

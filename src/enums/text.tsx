@@ -25,6 +25,8 @@ enum ViewTitle {
   LOGIN_FAIL = '로그인 실패',
   AVATAR = '아바타',
   ACCOUNT_MODIFY = '회원 수정',
+  HOME = '홈',
+  WRITE_COMMENT = '댓글 쓰기',
 }
 
 enum ViewDesc {
@@ -50,6 +52,7 @@ enum ErrorTitle {
   EMAIL_ERROR = '이메일 오류!',
   PASSWORD_ERROR = '비밀번호 오류!',
   EMPTY_OBJECT_ERROR = '빈값 오류!',
+  FETCH_ERROR = '데이터 페치 오류!',
 }
 
 enum ErrorDesc {

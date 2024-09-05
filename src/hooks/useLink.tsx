@@ -20,8 +20,11 @@ export default function useLink() {
     if (link !== '/account/join' && link !== '/account/login' && link !== '/account/logout') {
       setPath(link + window.location.search)
     }
-
-    router.push(link + window.location.search)
+    if (link.includes('page=')) {
+      router.push(link)
+    } else {
+      router.push(link + window.location.search)
+    }
   }
 
   const onBack = () => {

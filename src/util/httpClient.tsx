@@ -30,12 +30,15 @@ async function request(
     body: data && JSON.stringify(data),
   })
 
-  if (res.status === 401) {
+  if (res.status === 200) {
+    return res.json()
+  } else if (res.status === 422) {
+    const errorData = await res.json() // 서버에서 제공한 에러 메시지 등을 가져옴
+    throw new Error(errorData.message || 'Unprocessable Entity')
+  } else if (res.status === 401) {
     localStorage.clear()
     window.location.reload()
   }
-
-  return res.json()
 }
 
 const get = (url: string, query?: Record<string, string>, headers?: any) => {
@@ -55,6 +58,10 @@ const post = async (url: string, data?: object, headers?: any) => {
   return response
 }
 
+const put = async (url: string, data?: object, headers?: any) => {
+  return await request(`${process.env.API_URL}${url}`, 'PUT', data, headers)
+}
+
 const filePost = async (url: string, formData: FormData) => {
   const response = await fetch(`${process.env.API_URL}${url}`, {
     method: 'POST',
@@ -69,6 +76,7 @@ const filePost = async (url: string, formData: FormData) => {
 const HttpClient = {
   get,
   post,
+  put,
   filePost,
 }
 

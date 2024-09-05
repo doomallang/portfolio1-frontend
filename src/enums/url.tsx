@@ -8,6 +8,9 @@ enum ApiUrl {
   FREE_NOTICE_IMAGE = '/freeNotice/image',
   FREE_NOTICE_WRITE = '/freeNotice/write',
   FREE_NOTICE_VIEW = '/freeNotice/view',
+  FREE_NOTICE_COMMENT = '/freeNotice/comment',
+  FREE_NOTICE_RECOMMEND = '/freeNotice/recommend',
+  COMMENT_RECOMMEND = '/freeNotice/comment/recommend',
   VALID_TOKEN = '/common/validToken',
 }
 

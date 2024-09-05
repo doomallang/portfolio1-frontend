@@ -7,4 +7,10 @@ interface AuthStore {
   setPath: (key: string) => void
 }
 
-export type { AuthStore }
+interface ErrorStore {
+  isError: boolean
+  message: string
+  setError: (isError: boolean, message: string) => void
+}
+
+export type { AuthStore, ErrorStore }

@@ -1,0 +1,18 @@
+.titleContainer {
+  margin-bottom: 20px;
+}
+
+.contentsContainer {
+  margin-bottom: 20px;
+}
+
+.recommend {
+  float: right;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.button {
+  width: 100%;
+}

@@ -6,7 +6,7 @@ type MenuItem = Required<MenuProps>['items'][number]
 const menuItems: MenuItem[] = [
   {
     label: ViewTitle.FREE_NOTICE,
-    key: 'freeNotice',
+    key: 'freeNotice?page=1',
   },
   {
     label: ViewTitle.Q_AND_A,

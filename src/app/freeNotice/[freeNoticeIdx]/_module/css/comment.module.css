@@ -1,0 +1,25 @@
+.commentContainer {
+  margin-top: 20px;
+}
+
+.button {
+  margin-top: 20px;
+  float: right;
+}
+
+.contentContainer {
+  display: flex;
+}
+
+.datetime {
+  font-size: 12px;
+}
+
+.content {
+  color: black;
+}
+
+.recommend {
+  margin-left: auto;
+  color: black;
+}

@@ -7,27 +7,46 @@ import FreeNoticeList from '@/app/freeNotice/_module/component/free.notice.list'
 import { useFreeNoticeListQuery } from '@/queries/query.free.notice'
 import { useEffect, useState } from 'react'
 import FreeNoticeNav from '@/app/freeNotice/_module/component/free.notice.nav'
+import { Pagination, PaginationProps } from 'antd'
+import useErrorStore from '@/stores/store.error'
+import { useSearchParams } from 'next/navigation'
 
 export default function FreeNoticeBody() {
-  const [page, setPage] = useState(1)
+  const searchParams = useSearchParams()
+  const [page, setPage] = useState<number>(Number(searchParams.get('page')) || 1)
   const [searchText, setSearchText] = useState('')
   const [sortType, setSortType] = useState('recent')
 
-  const { data, isSuccess, refetch } = useFreeNoticeListQuery(page, sortType, searchText)
+  const { setError } = useErrorStore()
+
+  const { data, error, isError, refetch } = useFreeNoticeListQuery(page, sortType, searchText)
+
+  useEffect(() => {
+    if (isError) {
+      setError(true, error.message)
+    }
+  }, [isError])
 
   useEffect(() => {
     refetch()
   }, [sortType, page])
 
+  const onChangePage: PaginationProps['onChange'] = (page) => {
+    setPage(page)
+  }
+
   return (
-    <div className={style.bodyContainer}>
+    <>
       {data && (
-        <>
+        <div className={style.bodyContainer}>
           <FreeNoticeTitle />
           <FreeNoticeNav setSortType={setSortType} />
-          <FreeNoticeList count={data.data.count} contents={data.data.list} setPage={setPage} />
-        </>
+          <FreeNoticeList contents={data.data.list} page={page} />
+          <div className={style.pageContainer}>
+            <Pagination total={data.data.count} onChange={onChangePage} current={page} />
+          </div>
+        </div>
       )}
-    </div>
+    </>
   )
 }

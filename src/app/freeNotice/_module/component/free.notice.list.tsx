@@ -1,7 +1,7 @@
 'use client'
 
 import style from '../css/list.module.css'
-import { Avatar, List, Pagination, PaginationProps } from 'antd'
+import { Avatar, List } from 'antd'
 import { FreeNotice } from '@/interfaces/interface.free.notice'
 import { HeartOutlined, MehOutlined } from '@ant-design/icons'
 import useLink from '@/hooks/useLink'
@@ -9,25 +9,22 @@ import { RouteUrl } from '@/enums/url'
 import { removeTag } from '@/util/common'
 
 export default function FreeNoticeList({
-  count,
   contents,
-  setPage,
+  page,
 }: {
-  count: number
   contents: FreeNotice[]
-  setPage: Function
+  page: number
 }) {
   const { onLink } = useLink()
-  const onChangePage: PaginationProps['onChange'] = (page) => {
-    setPage(page)
-  }
 
   return (
     <div className={style.listContainer}>
       <List
         dataSource={contents}
         renderItem={(item) => (
-          <List.Item onClick={() => onLink(`${RouteUrl.FREE_NOTICE}/${item.freeNoticeIdx}`)}>
+          <List.Item
+            onClick={() => onLink(`${RouteUrl.FREE_NOTICE}/${item.freeNoticeIdx}?page=${page}`)}
+          >
             <List.Item.Meta
               avatar={<Avatar src={item.resAccount.avatar} />}
               title={<div>{item.title}</div>}
@@ -52,7 +49,6 @@ export default function FreeNoticeList({
           </List.Item>
         )}
       />
-      <Pagination total={count} onChange={onChangePage} />
     </div>
   )
 }
