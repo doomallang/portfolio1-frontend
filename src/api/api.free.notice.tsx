@@ -23,11 +23,17 @@ export async function addImage(data: File) {
 }
 
 /** 게시글 등록 */
-export async function addFreeNotice(freeNoticeIdx: string, title: string, content: string) {
+export async function addFreeNotice(
+  freeNoticeIdx: string,
+  title: string,
+  content: string,
+  accountId: string,
+) {
   const data = {
     freeNoticeIdx: freeNoticeIdx,
     title: title,
     content: content,
+    accountId: accountId,
   }
   return await HttpClient.post(ApiUrl.FREE_NOTICE_WRITE, data)
 }

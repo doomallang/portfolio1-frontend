@@ -10,6 +10,7 @@ import ContentsTitle from '@/components/ContentsTitle'
 import { RouteUrl } from '@/enums/url'
 import useErrorStore from '@/stores/store.error'
 import { modifyNoticeRecommend } from '@/api/api.free.notice'
+import HtmlEditor from '@/components/HtmlEditor'
 
 export default function FreeNoticeViewContent({ id }: { id: string }) {
   const { setError } = useErrorStore()
@@ -44,6 +45,8 @@ export default function FreeNoticeViewContent({ id }: { id: string }) {
     }
   }
 
+  function empty() {}
+
   return (
     <>
       {contextHolder}
@@ -53,7 +56,7 @@ export default function FreeNoticeViewContent({ id }: { id: string }) {
             <ContentsTitle title={data.data.title} />
           </div>
           <div className={style.contentsContainer}>
-            <div dangerouslySetInnerHTML={{ __html: data.data.content }} />
+            <HtmlEditor text={data.data.content} setText={empty} reaOnly={true} />
           </div>
           <div className={style.recommend} onClick={noticeRecommend}>
             ☆ {data.data.recommendCount}

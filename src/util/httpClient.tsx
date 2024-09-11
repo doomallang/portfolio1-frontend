@@ -37,7 +37,7 @@ async function request(
     throw new Error(errorData.message || 'Unprocessable Entity')
   } else if (res.status === 401) {
     localStorage.clear()
-    window.location.reload()
+    window.location.href = '/account/login'
   }
 }
 

@@ -1,35 +1,21 @@
-import { useMemo, useRef, useState } from 'react'
-import ReactQuill, { Quill } from 'react-quill'
+'use client'
+
+import { useMemo } from 'react'
+import dynamic from 'next/dynamic'
 import 'react-quill/dist/quill.snow.css'
-import { addImage } from '@/api/api.free.notice'
 
-export default function HtmlEditor({ text, setText }: { text: string; setText: Function }) {
-  const quillRef = useRef(null)
+// ReactQuill을 동적으로 로드하여 클라이언트에서만 실행되도록 설정
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
-  const imageHandler = async () => {
-    const input = document.createElement('input')
-    input.setAttribute('type', 'file')
-    input.setAttribute('accept', 'image/*')
-    input.click()
-
-    input.addEventListener('change', async () => {
-      //이미지를 담아 전송할 formData를 만든다
-      const file = input.files?.[0]
-      try {
-        const response = await addImage(file!)
-        const imagePath = `http://localhost:3000/saveImages/` + encodeURI(response.data)
-        //useRef를 사용해 에디터에 접근한 후
-        //에디터의 현재 커서 위치에 이미지 삽입
-        const editor = quillRef.current.getEditor()
-        const range = editor.getSelection()
-        // 가져온 위치에 이미지를 삽입한다
-        editor.insertEmbed(range.index, 'image', imagePath)
-      } catch (error) {
-        console.log(error)
-      }
-    })
-  }
-
+export default function HtmlEditor({
+  text,
+  setText,
+  reaOnly,
+}: {
+  text: string
+  setText: Function
+  reaOnly?: boolean
+}) {
   const modules = useMemo(() => {
     return {
       toolbar: {
@@ -47,20 +33,26 @@ export default function HtmlEditor({ text, setText }: { text: string; setText: F
           ],
         ],
         handlers: {
-          image: imageHandler,
+          image: () => {}, // 이미지 핸들러 추가
         },
       },
     }
   }, [])
 
+  const noShowModules = useMemo(() => {
+    return {
+      toolbar: false,
+    }
+  }, [])
+
   return (
     <ReactQuill
-      ref={quillRef}
       theme="snow"
+      modules={reaOnly ? noShowModules : modules}
       style={{ height: '300px' }}
-      modules={modules}
       onChange={(e) => setText(e)}
       value={text}
+      readOnly={reaOnly}
     />
   )
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 import { Button, Form, Input } from 'antd'
 import useLink from '@/hooks/useLink'
@@ -30,7 +32,8 @@ export default function FreeNoticeModifyForm() {
   }, [freeNoticeIdx])
 
   async function onClickRegist() {
-    const response = await addFreeNotice(freeNoticeIdx.toString(), title, text)
+    const accountId = localStorage.getItem('accountId')
+    const response = await addFreeNotice(freeNoticeIdx.toString(), title, text, accountId!)
 
     if (response.status === 200) {
       onLink(RouteUrl.FREE_NOTICE)

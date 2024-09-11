@@ -54,7 +54,7 @@ export default function JoinForm() {
   async function onClickJoin() {
     if (validateAccount()) {
       const encPassword = aesEncrypt(account.password)
-      await join(account.accountId, encPassword, account.name, account.nickname, account.email)
+      await join(account.accountId!, encPassword, account.name!, account.nickname!, account.email!)
     }
   }
 
