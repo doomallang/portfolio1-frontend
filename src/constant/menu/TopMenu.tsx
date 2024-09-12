@@ -12,6 +12,10 @@ const menuItems: MenuItem[] = [
     label: ViewTitle.Q_AND_A,
     key: 'qna',
   },
+  {
+    label: ViewTitle.MOVIE,
+    key: 'movie',
+  },
 ]
 
 export { menuItems }

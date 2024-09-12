@@ -5,6 +5,7 @@ enum ViewTitle {
   FREE_NOTICE_VIEW = '자유 글',
   FREE_NOTICE_WRITE = '글 작성하기',
   Q_AND_A = 'Q&A',
+  MOVIE = '영화',
   LOGIN = '로그인',
   ID = '아이디',
   PASSWORD = '비밀번호',

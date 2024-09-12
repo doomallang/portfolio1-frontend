@@ -16,3 +16,9 @@ body {
 .ql-container.ql-snow {
   border: none !important;
 }
+
+.ant-collapse {
+  border: none !important;
+  background-color: transparent !important;
+  margin-top: 10px;
+}

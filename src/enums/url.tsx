@@ -14,6 +14,14 @@ enum ApiUrl {
   VALID_TOKEN = '/common/validToken',
 }
 
+enum MovieApi {
+  HOST = 'https://api.themoviedb.org/3',
+  GENRE = '/genre/movie/list?language=ko',
+  NOW_PLAYING = '/movie/now_playing?language=ko-KR&page=1',
+  POPULAR = '/movie/popular?language=ko-KR&page=1',
+  UPCOMING = '/movie/upcoming?language=ko-KR&page=1',
+}
+
 enum RouteUrl {
   ROOT = '/',
   HOME = '/home',
@@ -23,4 +31,4 @@ enum RouteUrl {
   FREE_NOTICE = '/freeNotice',
 }
 
-export { ApiUrl, RouteUrl }
+export { ApiUrl, RouteUrl, MovieApi }
