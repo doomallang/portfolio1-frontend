@@ -2,7 +2,6 @@
 
 import { Layout } from 'antd'
 import Top from '@/components/container/Top'
-import Bottom from '@/components/container/Bottom'
 import { ReactNode } from 'react'
 import style from './_module/css/container.module.css'
 

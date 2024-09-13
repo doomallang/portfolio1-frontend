@@ -22,6 +22,13 @@ enum MovieApi {
   UPCOMING = '/movie/upcoming?language=ko-KR&page=1',
 }
 
+enum StockApi {
+  HOST = 'https://financialmodelingprep.com/api/v3',
+  API_KEY = '&apikey=OTJkCBiQU8yDILzzfIU4FsGYIwEiFGVG',
+  KOE = '/search?exchange=KOE&query=',
+  KSC = '/search?exchange=KSC&query=',
+}
+
 enum RouteUrl {
   ROOT = '/',
   HOME = '/home',
@@ -31,4 +38,4 @@ enum RouteUrl {
   FREE_NOTICE = '/freeNotice',
 }
 
-export { ApiUrl, RouteUrl, MovieApi }
+export { ApiUrl, RouteUrl, MovieApi, StockApi }

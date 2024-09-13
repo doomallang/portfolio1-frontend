@@ -16,6 +16,10 @@ const menuItems: MenuItem[] = [
     label: ViewTitle.MOVIE,
     key: 'movie',
   },
+  {
+    label: ViewTitle.STOCK,
+    key: 'stock',
+  },
 ]
 
 export { menuItems }
