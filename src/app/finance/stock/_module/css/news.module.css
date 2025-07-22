@@ -1,0 +1,22 @@
+/* news.module.css */
+
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 */
+  gap: 16px;
+  padding: 16px;
+}
+
+.itemCard {
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.itemCard:hover {
+  transform: translateY(-4px);
+}

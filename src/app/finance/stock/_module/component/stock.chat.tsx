@@ -1,12 +1,8 @@
-'use client'
-
 import { useEffect, useRef, useState } from 'react'
-import SockJS from 'sockjs-client'
 import { Client, Message } from '@stomp/stompjs'
 import { Button, Input, InputRef, List, Space } from 'antd'
-
-import style from '@/app/home/_module/css/body.module.css'
-import HomeMap from '@/app/home/_module/component/home.map'
+import SockJS from 'sockjs-client'
+import style from '../css/chat.module.css'
 
 interface ChatMessage {
   sender?: string
@@ -14,7 +10,7 @@ interface ChatMessage {
   timestamp?: number
 }
 
-export default function Home() {
+export default function StockChat() {
   const [stompClient, setStompClient] = useState<Client | null>(null)
   const [message, setMessage] = useState<string>('')
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
@@ -37,7 +33,8 @@ export default function Home() {
     loadMessages()
 
     // WebSocket 연결 설정 (한 번만 실행됨)
-    const socket = new SockJS(`https://incorrect-engaging-technologies-yes.trycloudflare.com/ws`)
+    const socket = new SockJS(`https://strengths-oct-restrict-green.trycloudflare.com/ws`)
+    //const socket = new SockJS('/ws')
     const stomp = new Client({
       webSocketFactory: () => socket as WebSocket, // SockJS를 WebSocket으로 사용
       reconnectDelay: 5000, // 재연결 딜레이
@@ -70,6 +67,9 @@ export default function Home() {
   }, [])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // 한글 조합 중이면 무시 (Enter 눌러도 아직 확정 안 됐을 수 있음)
+    if (e.nativeEvent.isComposing) return
+
     if (e.key === 'Enter') {
       sendMessage()
     }
@@ -100,6 +100,7 @@ export default function Home() {
 
   return (
     <div>
+      <label style={{ fontWeight: 'bold', fontSize: 'larger' }}>실시간 대화</label>
       <div ref={chatListRef} className={style.chatList}>
         <List
           dataSource={chatMessages}
@@ -135,10 +136,9 @@ export default function Home() {
           ref={inputRef} // inputRef로 Input 참조
         />
         <Button type="primary" onClick={sendMessage}>
-          Submit
+          전송
         </Button>
       </Space.Compact>
-      <HomeMap />
     </div>
   )
 }

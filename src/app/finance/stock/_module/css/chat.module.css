@@ -1,0 +1,10 @@
+.chatContainer {
+  width: 100%;
+}
+
+.chatList {
+  height: 450px;
+  overflow-y: auto;
+  border: 2px solid darkgray;
+  padding: 10px;
+}

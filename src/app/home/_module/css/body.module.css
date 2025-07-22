@@ -1,0 +1,10 @@
+.chatList {
+  height: 500px;
+  overflow-y: auto;
+  border: 2px solid #001297;
+  margin: 10px;
+  padding: 10px;
+}
+
+.chatInput {
+}

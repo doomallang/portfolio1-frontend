@@ -1,4 +1,4 @@
-import HttpClient from '@/util/httpClient'
+import ClientHttpClient from '@/util/clientHttpClient'
 import { ApiUrl } from '@/enums/url'
 
 export async function login(accountId: string, password: string) {
@@ -7,7 +7,7 @@ export async function login(accountId: string, password: string) {
     password: password,
   }
 
-  const response = await HttpClient.post(ApiUrl.ACCOUNT_LOGIN, data)
+  const response = await ClientHttpClient.post(ApiUrl.ACCOUNT_LOGIN, data)
 
   return response
 }
@@ -27,13 +27,13 @@ export async function join(
     email: email,
   }
 
-  const response = await HttpClient.post(ApiUrl.ACCOUNT_JOIN, data)
+  const response = await ClientHttpClient.post(ApiUrl.ACCOUNT_JOIN, data)
 
   return response
 }
 
 export async function getInfo(accountId: string) {
-  const response = await HttpClient.get(ApiUrl.ACCOUNT_INFO, { accountId: accountId })
+  const response = await ClientHttpClient.get(ApiUrl.ACCOUNT_INFO, { accountId: accountId })
 
   return response
 }
@@ -49,7 +49,7 @@ export async function passwordChange(
     nextPassword: nextPassword,
   }
 
-  const response = await HttpClient.post(ApiUrl.PASSWORD_CHANGE, data)
+  const response = await ClientHttpClient.post(ApiUrl.PASSWORD_CHANGE, data)
 
   return response
 }
@@ -61,7 +61,7 @@ export async function modifyAccount(nickname: string, avatar: string, accountIdx
     avatar: avatar,
   }
 
-  const response = await HttpClient.post(ApiUrl.ACCOUNT_MODIFY, data)
+  const response = await ClientHttpClient.post(ApiUrl.ACCOUNT_MODIFY, data)
 
   return response
 }

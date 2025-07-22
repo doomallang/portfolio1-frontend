@@ -1,9 +1,9 @@
-import HttpClient from '@/util/httpClient'
 import { ApiUrl } from '@/enums/url'
+import ClientHttpClient from '@/util/clientHttpClient'
 
 /** 자유게시판 목록 */
 export async function getFreeNoticeList(page: number, sortType: string, searchText: string) {
-  const response = await HttpClient.get(ApiUrl.FREE_NOTICE_LIST, {
+  const response = await ClientHttpClient.get(ApiUrl.FREE_NOTICE_LIST, {
     page: `${page}`,
     sortType: sortType,
     searchText: searchText,
@@ -17,7 +17,7 @@ export async function addImage(data: File) {
   const formData = new FormData()
   formData.append('image', data)
 
-  const response = await HttpClient.filePost(ApiUrl.FREE_NOTICE_IMAGE, formData)
+  const response = await ClientHttpClient.filePost(ApiUrl.FREE_NOTICE_IMAGE, formData)
 
   return response
 }
@@ -35,17 +35,17 @@ export async function addFreeNotice(
     content: content,
     accountId: accountId,
   }
-  return await HttpClient.post(ApiUrl.FREE_NOTICE_WRITE, data)
+  return await ClientHttpClient.post(ApiUrl.FREE_NOTICE_WRITE, data)
 }
 
 export async function getFreeNotice(freeNoticeIdx: string) {
-  return await HttpClient.get(ApiUrl.FREE_NOTICE_VIEW, {
+  return await ClientHttpClient.get(ApiUrl.FREE_NOTICE_VIEW, {
     freeNoticeIdx: freeNoticeIdx,
   })
 }
 
 export async function getFreeNoticeComment(freeNoticeIdx: string) {
-  return await HttpClient.get(ApiUrl.FREE_NOTICE_COMMENT, {
+  return await ClientHttpClient.get(ApiUrl.FREE_NOTICE_COMMENT, {
     freeNoticeIdx: freeNoticeIdx,
   })
 }
@@ -61,7 +61,7 @@ export async function addFreeNoticeComment(
     accountId: accountId,
   }
 
-  return await HttpClient.post(ApiUrl.FREE_NOTICE_COMMENT, data)
+  return await ClientHttpClient.post(ApiUrl.FREE_NOTICE_COMMENT, data)
 }
 
 export async function modifyCommentRecommend(commentIdx: string, accountId: string) {
@@ -70,7 +70,7 @@ export async function modifyCommentRecommend(commentIdx: string, accountId: stri
     accountId: accountId,
   }
 
-  return await HttpClient.put(ApiUrl.COMMENT_RECOMMEND, data)
+  return await ClientHttpClient.put(ApiUrl.COMMENT_RECOMMEND, data)
 }
 
 export async function modifyNoticeRecommend(freeNoticeIdx: string, accountId: string) {
@@ -79,5 +79,5 @@ export async function modifyNoticeRecommend(freeNoticeIdx: string, accountId: st
     accountId: accountId,
   }
 
-  return await HttpClient.put(ApiUrl.FREE_NOTICE_RECOMMEND, data)
+  return await ClientHttpClient.put(ApiUrl.FREE_NOTICE_RECOMMEND, data)
 }

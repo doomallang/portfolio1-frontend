@@ -38,4 +38,13 @@ enum RouteUrl {
   FREE_NOTICE = '/freeNotice',
 }
 
-export { ApiUrl, RouteUrl, MovieApi, StockApi }
+enum FinanceApi {
+  STOCK_SECTOR_LIST = '/finance/stock/sector/list',
+  STOCK_LIST = '/finance/stock/list',
+  STOCK_RECOMMEND_LIST = '/finance/stock/recommend/list',
+  STOCK = '/finance/stock',
+  STOCK_PRICE = '/finance/stock/price',
+  STOCK_NEWS = '/finance/stock/news',
+}
+
+export { ApiUrl, RouteUrl, MovieApi, StockApi, FinanceApi }

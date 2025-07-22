@@ -45,4 +45,17 @@ const calDate = (datetime: string) => {
   return Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 }
 
-export { validateEmail, validatePass, isEmptyObject, removeTag, calDate }
+function parseCustomDate(dateNum: number): string {
+  const str = dateNum.toString().padStart(7, '0') // 7자리 보장
+  const year = parseInt(str.slice(0, 4)) // 앞 4자리 = 연도
+  const month = parseInt(str.slice(4, 5)) // 5번째 = 월 (1자리일 수 있음)
+  const day = parseInt(str.slice(5)) // 나머지 = 일
+
+  // 월과 일이 한 자리 수일 수 있으므로 padStart 필요
+  const mm = month.toString().padStart(2, '0')
+  const dd = day.toString().padStart(2, '0')
+
+  return `${year}-${mm}-${dd}`
+}
+
+export { validateEmail, validatePass, isEmptyObject, removeTag, calDate, parseCustomDate }

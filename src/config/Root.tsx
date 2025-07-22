@@ -9,8 +9,6 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import ErrorModal from '@/components/modal/ErrorModal'
-import useErrorStore from '@/stores/store.error'
-import Error from 'next/error'
 
 interface Props {
   children: ReactNode

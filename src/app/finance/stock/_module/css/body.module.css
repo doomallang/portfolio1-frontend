@@ -1,0 +1,15 @@
+.container {
+  padding: 20px;
+}
+
+.recommendContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+.chatContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+}

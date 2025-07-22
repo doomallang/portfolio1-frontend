@@ -8,10 +8,12 @@ const moment = require('moment-timezone')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+const cors = require('cors')
 
 app.prepare().then(() => {
   const server = express()
 
+  server.use(cors())
   // Middleware to log requests
   server.use((req, res, next) => {
     const clientIp = requestIp.getClientIp(req)
